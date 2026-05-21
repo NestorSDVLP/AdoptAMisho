@@ -26,6 +26,7 @@
 </template>
 
 <script setup>
+
 import { ref } from 'vue'
 
 // Este es nuestro "Estado Centralizado" por ahora. 
