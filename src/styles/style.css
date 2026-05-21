@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+body {
+  font-family: "Inter", "Helvetica", "Arial", sans-serif;
+}
+
+/*
+  FAB Cats:
+*/
+
+.hero-video-bg {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.hero-video-bg video {
+  width: 600px;
+}
+
+/*
+  FAB Cats:
+*/
+
+.fab-cats {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+}
+
+.fab-cats .icon {
+  width: 60px;
+}
+
+.fab-cats .badge {
+  position: absolute;
+  top: 3px;
+  right: -20px;
+  font-size: 16px;
+}

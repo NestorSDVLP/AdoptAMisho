@@ -2,22 +2,27 @@
 
   <header>
     <div class="container">
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Refugio</a>
+          <a class="navbar-brand" href="#">
+            <h2>Refugio</h2>
+          </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
           <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="mainNav">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav align-items-center ms-auto me-0">
               <li class="nav-item">
                 <router-link class="nav-link active" to="/">Home</router-link>
               </li>
-              <li class="nav-item">
-                <router-link class="nav-link" to="/refugio">Refugio</router-link>
+              <li class="nav-item ms-3">
+                <router-link class="nav-link" to="/refugio">Gatitos</router-link>
               </li>
-              <li class="nav-item">
-                <span class="badge text-bg-primary">{{ totalMishos }}</span>
+              <li class="nav-item ms-3">
+                <div class="d-flex align-items-center">
+                  <img src="@/media/images/cat_face.svg" class="me-1">
+                  <span class="badge text-bg-primary rounded-pill">{{ totalMishos }}</span>
+                </div>
               </li>              
             </ul>
           </div>
@@ -26,13 +31,20 @@
     </div>
   </header>
 
+  <div class="hero-video-bg">
+      <video autoplay muted loop playsinline poster="@/media/videos/posters/home_hero.png">
+        <source src="@/media/videos/home_hero.mp4" type="video/mp4">
+      </video>
+  </div>
+
   <main>
     <router-view />
   </main>
 
-  <!--<div class="fab-camita">
-    <span>{{ totalMishos }}</span>
-  </div>-->
+  <div class="fab-cats">
+    <img src="@/media/images/cat_face.svg" class="icon">
+    <span class="badge text-bg-primary rounded-pill">{{ totalMishos }}</span>
+  </div>
 
 </template>
 
