@@ -12,6 +12,7 @@
                     :catsAge="cat.age"
                     :catsDescription="cat.description"
                     :catsThumb="cat.thumb"
+                    @adopt="adoptCat(cat.id)"
                 />
             </div>
 
@@ -27,21 +28,13 @@
 
     import CardCat from '@/components/CardCat.vue'
 
-    const cats = ref([])
+    import { useCatsStore } from '@/stores/cats/cats'
 
-    const getCats = async () => {
-
-        const response = await fetch('/data/cats/cats.json')
-
-        const data = await response.json()
-
-        cats.value = data
-
-    }
+    const catsStore = useCatsStore()
 
     onMounted(() => {
 
-        getCats()
+        catsStore.getCats()
 
     })
 
