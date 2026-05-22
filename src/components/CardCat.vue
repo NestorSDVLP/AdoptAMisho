@@ -6,7 +6,9 @@
             <h4 class="card-title">{{ catsName }}</h4>
             <p class="card-text"><strong>Edad:</strong> {{ catsAge }}</p>
             <p class="card-text">{{ catsDescription }}</p>
-            <button type="button" class="btn-adopt btn btn-primary" @click="adoptCat">Adoptar</button>
+            <button type="button" class="btn-adopt btn btn-primary" @click="adoptCat">
+                {{ adopted ? 'Adoptado' : 'Adoptar' }}
+            </button>
         </div>
     </div>
 
@@ -17,17 +19,16 @@
     const emit = defineEmits(['adopt'])
 
     const adoptCat = () => {
-
-        emit('adopt')
-
+        emit('adopt', props.id)
     }
 
-    defineProps({
+    const props = defineProps({
         id: Number,
+        catsThumb: String,
         catsName: String,
         catsAge: String,
         catsDescription: String,
-        catsThumb: String
+        adopted: Boolean
     })
 
 </script>

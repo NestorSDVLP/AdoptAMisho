@@ -5,14 +5,15 @@
 
         <div class="row g-4">
 
-            <div v-for="cat in cats" :key="cat.id" class="col-lg-4">
+            <div v-for="cat in catsStore.cats" :key="cat.id" class="col-lg-4">
                 <CardCat
                     :id="cat.id"
+                    :catsThumb="cat.thumb"
                     :catsName="cat.name"
                     :catsAge="cat.age"
                     :catsDescription="cat.description"
-                    :catsThumb="cat.thumb"
-                    @adopt="adoptCat(cat.id)"
+                    :adopted="cat.adopted"
+                    @adopt="onAdopt"
                 />
             </div>
 
@@ -33,9 +34,11 @@
     const catsStore = useCatsStore()
 
     onMounted(() => {
-
         catsStore.getCats()
-
     })
+
+    const onAdopt = (id) => {
+        catsStore.adoptCat(id)
+    }
 
 </script>

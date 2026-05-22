@@ -1,16 +1,45 @@
-const cats = ref([])
+import { defineStore } from 'pinia'
 
-const getCats = async () => {
+import { ref, computed } from 'vue'
 
-    const response = await fetch('/data/cats/cats.json')
+export const useCatsStore = defineStore('cats', () => {
 
-    const data = await response.json()
+    const cats = ref([])
 
-    cats.value = data
+    const getCats = async () => {
 
-}
-const adoptCat = (id) => {
+        const response = await fetch('/data/cats/cats.json')
 
-    console.log('Adoptado:', id)
+        const data = await response.json()
 
-}
+        cats.value = data
+
+    }
+    const adoptCat = (id) => {
+
+        const cat = cats.value.find(c => c.id === id)
+
+        if (!cat) return
+
+        if (cat.adopted) return
+
+        cat.adopted = true
+
+        console.log('Adoptado:', id)
+
+    }
+
+    const adoptedCount = computed(() => {
+
+        return cats.value.filter(c => c.adopted).length
+
+    })
+
+    return {
+        cats,
+        getCats,
+        adoptCat,
+        adoptedCount
+    }
+
+})

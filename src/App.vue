@@ -42,9 +42,13 @@
 
 <script setup>
 
-  import { ref } from 'vue'
+  import { computed } from 'vue'
 
-  const catsCount = ref(0)
+  import { useCatsStore } from '@/stores/cats/cats'
+
+  const catsStore = useCatsStore()
+
+  const catsCount = computed(() => catsStore.adoptedCount)
 
 </script>
 
